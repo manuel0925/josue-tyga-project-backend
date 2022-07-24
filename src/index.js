@@ -1,6 +1,9 @@
-const express = require('express');
+const app = require('./server');
 
-const app = express();
+const startApp = async ()=>{
+  
+  await new app().init()
+  
+}
 
-app.listen(process.env.PORT ||3000);
-console.log('server on port', process.env.PORT || 3000);
+startApp()
