@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan')
 const path = require('path');
 const cors = require('cors');
+require('dotenv').config()
 
 const Sequelize = require('./database/index')
 
@@ -51,7 +52,7 @@ class App {
   async init(){
   
     try {
-
+      await Sequelize.initDatabase()
       this.middleware();
       this.initRoutes();
       
